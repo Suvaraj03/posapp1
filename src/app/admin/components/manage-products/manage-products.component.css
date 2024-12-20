@@ -1,0 +1,33 @@
+.table-responsive {
+  margin-top: 20px;
+}
+
+.modal-header {
+  background-color: #02172e;
+  color: white;
+}
+
+.modal-footer {
+  background-color: #f8f9fa;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+.button-gap {
+  margin-right: 10px; /* Adjust the gap size as needed */
+}
+

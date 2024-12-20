@@ -1,0 +1,9 @@
+.breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  
+  .breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+  }

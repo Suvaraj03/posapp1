@@ -1,0 +1,93 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Sidebar */
+.sidebar {
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    background-color: #343a40;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.sidebar .nav-link {
+    color: #adb5bd;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #495057;
+    color: #fff;
+}
+
+.sidebar .active {
+    background-color: #495057;
+}
+
+.sidebar .nav-link i {
+    margin-right: 10px;
+}
+
+/* Content */
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.navbar-toggler {
+    background-color: #adb5bd;
+    border: none;
+}
+
+/* Animation */
+.card {
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.card.animate {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.collapse-sidebar .sidebar {
+    width: 0;
+}
+
+.collapse-sidebar .content {
+    margin-left: 0;
+}
+
+
+
+
+/* Profile Icon Styles */
+.profile-icon {
+    width: 30px;                /* Set the size of the profile icon */
+    height: 30px;               /* Make it a perfect circle */
+    background-color: #007bff;  /* Use a background color (can be dynamic based on profile) */
+    color: white;               /* Text color for the letter */
+    font-size: 18px;            /* Size of the text inside the circle */
+    display: block;              /* Use flexbox to center the text inside the circle */
+    justify-content: center;    /* Center horizontally */
+    align-items: center;        /* Center vertically */
+    border-radius: 50%;         /* Make the container a perfect circle */
+}
+
+/* Dropdown Toggle Styling */
+.nav-item.dropdown .nav-link {
+    color: #007bff;             /* Make the dropdown link blue */
+    font-size: 16px;            /* Set the font size for the link */
+    padding: 10px 10px;         /* Add some padding to the link */
+    display: flex;              /* Flexbox to align the icon and text */
+    align-items: center; 
+           /* Center vertically */
+}
+
+li.nav-item.dropdown.ms-auto {
+    list-style: none;
+}

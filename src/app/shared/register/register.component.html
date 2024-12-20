@@ -1,0 +1,96 @@
+<div class="card-body">
+
+  <div *ngIf="registerStatus" class="alert alert-danger">
+    <strong>Error:</strong> {{ registerStatus }}
+  </div>
+
+  <form (ngSubmit)="onRegister()" #registerForm="ngForm" autocomplete="off">
+    <div class="mb-3">
+      <label for="name" class="form-label">Username</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="name" 
+        placeholder="Enter your name" 
+        required 
+        [(ngModel)]="newUser.name" 
+        name="name"
+        #name="ngModel">
+      <div *ngIf="name.invalid && name.touched" class="text-danger">
+        Username is required.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input 
+        type="email" 
+        class="form-control" 
+        id="email" 
+        placeholder="Enter your email" 
+        required
+        [(ngModel)]="newUser.email" 
+        name="email"
+        #email="ngModel">
+      <div *ngIf="email.invalid && email.touched && email.errors" class="text-danger">
+       Email is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input 
+        type="password" 
+        class="form-control" 
+        id="password" 
+        placeholder="Enter your password" 
+        required 
+        [(ngModel)]="newUser.password" 
+        name="password"
+        #password="ngModel"
+        minlength="6">
+      <div *ngIf="password.invalid && password.touched" class="text-danger">
+        Password is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone Number</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="phone" 
+        placeholder="Enter your Phone Number" 
+        required 
+        [(ngModel)]="newUser.phone" 
+        name="phone"
+        #phone="ngModel"
+        pattern="^\d{10}$">
+      <div *ngIf="phone.invalid && phone.touched" class="text-danger">
+        Phone Number is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="role" class="form-label">Role</label>
+      <select 
+        class="form-select" 
+        id="role" 
+        required 
+        [(ngModel)]="newUser.role" 
+        name="role"
+        #role="ngModel">
+        <option value="" selected disabled>Choose a role</option>
+        <option value="ADMIN">Admin</option>
+        <option value="USER">User</option>
+      </select>
+      <div *ngIf="role.invalid && role.touched" class="text-danger">
+        Role is required.
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Register</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,28 @@
+ <!-- Sales History -->
+ <div class="mt-5">
+    <h3>Sales History</h3>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Sale Date</th>
+                <th>Total (₹)</th>
+                <th>Items Sold</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let sale of sales; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ sale.date }}</td>
+                <td>{{ sale.total}}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let item of sale.items">
+                            {{ item.name }} (Qty: {{ item.quantity }})
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

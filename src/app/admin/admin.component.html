@@ -1,0 +1,57 @@
+<div class="sidebar" id="sidebar">
+    <div class="text-center py-4">
+        <h4>POS Dashboard</h4>
+    </div>
+    <nav class="nav flex-column">
+        <a class="nav-link active" routerLink="/admin/dashboard"><i class="fas fa-home"></i> Dashboard</a>
+        <a class="nav-link" routerLink="/manage-sales"><i class="fas fa-cash-register"></i> Sales</a>
+        <a class="nav-link" routerLink="/admin/manage-products"><i class="fas fa-box"></i> Products</a>
+        <a class="nav-link" routerLink="/admin/manage-category"><i class="fas fa-box"></i> Category</a>
+        <a class="nav-link" routerLink="/admin/manage-users"><i class="fas fa-users"></i> Customers</a>
+        <a class="nav-link" routerLink="/admin/manage-inventory"><i class="fas fa-users"></i> Inventory</a>
+        <a class="nav-link" routerLink="/admin/manage-reports"><i class="fas fa-chart-line"></i> Reports</a>
+        <a class="nav-link" routerLink="/admin/manage-product"><i class="fas fa-cogs"></i> Settings</a>
+        <a class="nav-link" routerLink="#" (click)="logout()"><i class="fas fa-cogs"></i> Logout</a>
+    </nav>
+
+    
+</div>
+
+
+
+
+
+
+<!-- Main Content -->
+<div class="content" id="content">
+
+    <!-- User Account-->
+
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+        <button class="navbar-toggler" type="button" id="toggleSidebar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+       <app-breadcrumb></app-breadcrumb>
+
+
+       <li class="nav-item dropdown ms-auto"  *ngIf="profile">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           
+               <!-- Profile Icon with First Letter -->
+                 <span class="profile-icon rounded-circle d-flex " >
+                      {{ profile.name.charAt(0) }}
+                 </span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#"><strong>{{profile.name}}</strong></a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#" (click)="logout()">Logout</a></li>
+        </ul>
+    </li>
+   
+    </nav>
+
+    <router-outlet></router-outlet>
+    
+</div>

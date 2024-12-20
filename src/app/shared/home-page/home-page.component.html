@@ -1,0 +1,145 @@
+
+
+   <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid">
+        <a href="#"><img src="pos-removebg-preview.png" class="logo"></a>
+        <a class="navbar-brand">Boost your business with every swipe</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto"> <!-- ms-auto aligns the items to the right -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Home</a>
+                </li>
+                <li class="nav-item" id="products">
+                    <a class="nav-link" routerLink="products">Products</a>
+                    <router-outlet></router-outlet>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact-us-footer">Contact Us</a>
+                </li>
+                <li class="nav-item" *ngIf="!profile">
+                    <button class="btn get-started-btn" data-bs-toggle="modal" data-bs-target="#authModel">Get Started</button>
+                </li>
+                
+                <!-- Profile Dropdown -->
+                <li class="nav-item dropdown"  *ngIf="profile">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                       
+                           <!-- Profile Icon with First Letter -->
+                             <span class="profile-icon rounded-circle d-flex " >
+                                  {{ profile.name.charAt(0) }}
+                             </span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#"><strong>{{profile.name}}</strong></a></li>
+                        <li *ngIf="profile.role == 'ADMIN'"><a class="dropdown-item" routerLink="admin/dashboard">Admin Dashboard  </a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#" (click)="logout()">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-text">
+            Transform Every Transaction into Growth
+        </div>
+       
+    </div>
+
+    <!-- Features Section -->
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-box">
+                    <h3>Easy to Use</h3>
+                    <p>Our POS system is designed for simplicity, making sales transactions effortless.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-box">
+                    <h3>Real-time Inventory</h3>
+                    <p>Manage your inventory in real-time with automated stock tracking and alerts.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-box">
+                    <h3>Advanced Reporting</h3>
+                    <p>Get detailed reports to analyze your sales, stock levels, and business performance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer" id="contact-us-footer">
+        <p>&copy; 2024 MyPOS System. All rights reserved.</p>
+        <div>
+            <span>
+            <a href="mailto:https://mail.google.com/mail/u/0/#inbox?compose=new" class="no-underline ">suvarajbalakrishnan.com  |  </a>
+        </span>
+            <span>
+                <a href="tel:+98754851882" class="no-underline "> 8754851882 </a>
+
+            </span>
+        </div>
+    </div>
+
+
+
+    
+<!-- The Modal -->
+<div class="modal" id="authModel">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header d-flex text-center">
+          <h4 class="modal-title" [innerHTML]="showRegister? 'Register to Continue !': 'Login to Continue' " ></h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <app-register *ngIf="showRegister"></app-register>
+          <app-login *ngIf="!showRegister"></app-login> 
+        </div>
+  
+        <div class="modal-footer d-flex justify-content-center">
+            <small *ngIf="showRegister">Already have an account? <a href="#" (click) = "toggleRegister()">Login</a></small>
+            <small *ngIf="!showRegister">Don't have an account? <a href="#" (click) = "toggleRegister()">Register</a></small>
+        </div>
+     
+      </div>
+    </div>
+  </div>
+
+
+
+ <!-- Modal Structure -->
+ <div class="modal fade alertModal" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content shadow-lg">
+        <div class="modal-header">
+          <h5 class="modal-title" id="alertModalLabel">Registration status </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <span class="d-flex justify-content-center text-success" data-bs-dismiss="modal" (click)="showLogin()">  <strong> Registration {{registerStatus?.get('status')}}! &nbsp; </strong>  <a href="#" class="alert-link"> {{registerStatus?.get("message")}} </a></span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

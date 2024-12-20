@@ -1,0 +1,84 @@
+<div class="container mt-5">
+  <h2 class="text-center">Product Management</h2>
+
+  <!-- Button to Open Modal for Adding Product -->
+  <div class="d-flex justify-content-end mb-3">
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal" (click)="onAddProduct()">Add Product</button>
+  </div>
+
+  <!-- Products Table -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>#</th>
+          <th>Product Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Category</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of myProducts; let i = index">
+          <td>{{product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.price | currency }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>{{ product.category.name }}</td>
+          <td>
+            <button class="btn btn-warning btn-sm button-gap" (click)="onEditProduct(product)">Edit</button>
+            <button class="btn btn-danger btn-sm" (click)="onEditProduct(product.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+<!-- Modal for Adding and Editing Product -->
+<div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addProductModalLabel">{{ isEditMode ? 'Edit Product' : 'Add New Product' }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="productName" class="form-label">Product Name</label>
+            <input type="text" class="form-control" id="productName" [(ngModel)]="newProduct.name" name="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="categoryName" class="form-label">Category Name</label>
+           <input type="text " class="form-control" id="categoryName" [(ngModel)]="newProduct.category.name" name="category" list="category" required>
+           <datalist id="category">
+            <option *ngFor="let category of myCategories" [value]="category.name">{{category.name}}</option>
+           </datalist>
+          </div>
+          <div class="mb-3">
+            <label for="productDescription" class="form-label">Description</label>
+            <textarea class="form-control" id="productDescription" [(ngModel)]="newProduct.description" name="description" rows="3" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="productPrice" class="form-label">Price</label>
+            <input type="number" class="form-control" id="productPrice" [(ngModel)]="newProduct.price" name="price" required>
+          </div>
+          <div class="mb-3">
+            <label for="productStock" class="form-label">Quantity</label>
+            <input type="number" class="form-control" id="productStock" [(ngModel)]="newProduct.quantity" name="quantity" required>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Save Changes' : 'Add Product' }}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

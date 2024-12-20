@@ -1,0 +1,183 @@
+
+        /* Custom styles */
+         .navbar-custom {
+            background-color: #34495e;
+        }
+        
+        .navbar-custom .navbar-brand, .navbar-custom .nav-link {
+            color: white;
+        }
+
+        .navbar-custom .navbar-brand:hover, .navbar-custom .nav-link:hover {
+            color: #aab7b8;
+
+
+        }
+        .no-underline {
+            text-decoration: none; /* Removes underline */
+          }
+
+        .hero-section {
+            background-image: url('/pos-animate.jpg'); 
+            background-size: contain;
+            background-position: 2px -121px;
+            background-repeat: no-repeat;
+            height: 140vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            
+        }
+        .hero-text {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .get-started-btn {
+            background-color: #f39c12;
+            color: white;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .get-started-btn:hover {
+            background-color: #e67e22;
+        }
+
+        .feature-box {
+            background-color: #ecf0f1;
+            padding: 40px;
+            margin-top: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .no-underline{
+            color: white;
+        }
+        .logo{
+            width: 100px;
+            height: 50;
+        }
+        .navbar-brand{
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            transition: transform 0.3s ease-in-out;
+            margin: 5px;
+            font-size: 30px;
+        }
+        .navbar-brand:hover{
+            transform: scale(1.05);
+        }
+   
+    
+  
+#alertbox
+{
+    position: absolute;
+    top:10px;
+    left:50%;
+    transform: translateX(-50%);
+    
+}
+/* Profile Icon Styles */
+.profile-icon {
+    width: 30px;                /* Set the size of the profile icon */
+    height: 30px;               /* Make it a perfect circle */
+    background-color: #007bff;  /* Use a background color (can be dynamic based on profile) */
+    color: white;               /* Text color for the letter */
+    font-size: 18px;            /* Size of the text inside the circle */
+    display: block;              /* Use flexbox to center the text inside the circle */
+    justify-content: center;    /* Center horizontally */
+    align-items: center;        /* Center vertically */
+    border-radius: 50%;         /* Make the container a perfect circle */
+}
+
+/* Dropdown Toggle Styling */
+.nav-item.dropdown .nav-link {
+    color: #007bff;             /* Make the dropdown link blue */
+    font-size: 16px;            /* Set the font size for the link */
+    padding: 10px 10px;         /* Add some padding to the link */
+    display: flex;              /* Flexbox to align the icon and text */
+    align-items: center;        /* Center vertically */
+}
+
+.nav-item.dropdown .nav-link:hover {
+    color: #0056b3;             /* Darker blue on hover */
+    background-color: rgba(0, 123, 255, 0.1);  /* Slight background change on hover */
+}
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+    background-color: #ffffff;   /* Set the dropdown background color */
+    border-radius: 5px;           /* Rounded corners for the dropdown */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);  /* Shadow effect for dropdown */
+    padding: 10px 0;              /* Vertical padding for dropdown items */
+    min-width: 200px;             /* Set a minimum width for the dropdown */
+}
+
+/* Dropdown Menu Item Styling */
+.dropdown-item {
+    padding: 10px 20px;           /* Padding for each item */
+    color: #333333;               /* Default text color */
+    font-size: 14px;              /* Font size for dropdown items */
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;   /* Light grey background on hover */
+    color: #007bff;               /* Change text color to blue on hover */
+}
+
+/* Profile name styling */
+.dropdown-item strong {
+    font-weight: bold;            /* Make the profile name bold */
+    font-size: 16px;              /* Slightly larger font for profile name */
+}
+
+/* Additional Adjustments */
+.dropdown-menu-end {
+    right: 0;                     /* Align the dropdown to the right */
+    left: auto;                   /* Ensure the dropdown doesn't overlap other elements */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-item.dropdown .nav-link {
+        font-size: 14px;           /* Adjust font size for smaller screens */
+        padding: 8px 12px;         /* Adjust padding for smaller screens */
+    }
+
+    .profile-icon {
+        width: 35px;              /* Smaller profile icon for mobile */
+        height: 35px;             /* Maintain the circular shape */
+        font-size: 16px;          /* Adjust font size for the first letter */
+    }
+}
+
+
+.dropdown {
+    
+    top: -5px;
+}
+.navbar-expand-lg .navbar-nav
+{
+    margin-top: 10px;
+}
